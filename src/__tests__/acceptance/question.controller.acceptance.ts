@@ -22,13 +22,7 @@ describe('QuestionController', () => {
   });
   it('successfully makes GET request to /questions/{id}', async () => {
     const res = await client.get('/questions/2').expect(200);
-    expect(res.body).containEql({
-      id: 2,
-      difficulty: 'medium',
-      question:
-        'Which computer hardware device provides an interface for all other connected devices to communicate?',
-      answer: 'Motherboard',
-    });
+    expect(res.body).containEql({id: 2, difficulty: 'medium', answer: 'Motherboard', });
   });
   it('makes DELETE request to /questions which fails', async () => {
     await client.delete('/questions/5').expect(403);
